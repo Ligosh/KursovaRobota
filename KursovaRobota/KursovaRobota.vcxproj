@@ -121,18 +121,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AddBookForm.cpp" />
     <ClCompile Include="AddUserForm.cpp" />
+    <ClCompile Include="BooksCatalog.cpp" />
+    <ClCompile Include="InputForm.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MainForm.cpp" />
     <ClCompile Include="StartForm.cpp" />
     <ClCompile Include="UsersCatalog.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AddBookForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="AddUserForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Admin.h" />
+    <ClInclude Include="Book.h" />
+    <ClInclude Include="BooksCatalog.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Guest.h" />
+    <ClInclude Include="InputForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="MainForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -147,8 +160,17 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AddBookForm.resx">
+      <DependentUpon>AddBookForm.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddUserForm.resx">
       <DependentUpon>AddUserForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BooksCatalog.resx">
+      <DependentUpon>BooksCatalog.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InputForm.resx">
+      <DependentUpon>InputForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.h</DependentUpon>
@@ -164,6 +186,7 @@
     <Image Include="8d099ee0c8efc78a239ee84133c2fd68.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="books.csv" />
     <None Include="users.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

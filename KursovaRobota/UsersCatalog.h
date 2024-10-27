@@ -3,7 +3,8 @@
 #include "AddUserForm.h"
 #include <vector>
 #include "msclr/marshal_cppstd.h"
-
+#include <fstream>
+#include <algorithm>
 
 namespace KursovaRobota {
 
@@ -15,32 +16,26 @@ namespace KursovaRobota {
     using namespace System::Data;
     using namespace System::Drawing;
 
-    /// <summary>
-    /// Сводка для UsersCatalog
-    /// </summary>
-
     public ref class UsersCatalog : public System::Windows::Forms::Form
     {
-
     private:
         System::Windows::Forms::Form^ mainForm;
         System::Windows::Forms::ListBox^ listBoxUsers;
         System::Windows::Forms::Button^ DeleteButton;
-        System::Windows::Forms::Button^ AddButton;  // Нова кнопка для додавання користувачів
+        System::Windows::Forms::Button^ AddButton;
+        System::Windows::Forms::Button^ SortButton;
 
-        List<User^>^ users;    // Список користувачів
+        List<User^>^ users;
+
     public:
         UsersCatalog(System::Windows::Forms::Form^ form)
         {
             InitializeComponent();
-            mainForm = form;  // Зберігаємо посилання на головну форму
-            loadUsers();      // Завантажуємо користувачів
+            mainForm = form;
+            loadUsers();
         }
 
     protected:
-        /// <summary>
-        /// Освободить все используемые ресурсы.
-        /// </summary>
         ~UsersCatalog()
         {
             if (components)
@@ -48,26 +43,22 @@ namespace KursovaRobota {
                 delete components;
             }
         }
+
     private: System::Windows::Forms::Button^ BackButton1;
+
     protected:
 
     private:
-        /// <summary>
-        /// Обязательная переменная конструктора.
-        /// </summary>
         System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
-        /// <summary>
-        /// Требуемый метод для поддержки конструктора — не изменяйте 
-        /// содержимое этого метода с помощью редактора кода.
-        /// </summary>
         void InitializeComponent(void)
         {
             this->BackButton1 = (gcnew System::Windows::Forms::Button());
             this->listBoxUsers = (gcnew System::Windows::Forms::ListBox());
             this->DeleteButton = (gcnew System::Windows::Forms::Button());
             this->AddButton = (gcnew System::Windows::Forms::Button());
+            this->SortButton = (gcnew System::Windows::Forms::Button());
             this->SuspendLayout();
             // 
             // BackButton1
@@ -108,11 +99,22 @@ namespace KursovaRobota {
             this->AddButton->UseVisualStyleBackColor = true;
             this->AddButton->Click += gcnew System::EventHandler(this, &UsersCatalog::button1_Click_2);
             // 
+            // SortButton
+            // 
+            this->SortButton->Location = System::Drawing::Point(13, 130);
+            this->SortButton->Name = L"SortButton";
+            this->SortButton->Size = System::Drawing::Size(85, 38);
+            this->SortButton->TabIndex = 4;
+            this->SortButton->Text = L"Сортувати за типом";
+            this->SortButton->UseVisualStyleBackColor = true;
+            this->SortButton->Click += gcnew System::EventHandler(this, &UsersCatalog::SortButton_Click);
+            // 
             // UsersCatalog
             // 
             this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
             this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-            this->ClientSize = System::Drawing::Size(548, 328);
+            this->ClientSize = System::Drawing::Size(494, 287);
+            this->Controls->Add(this->SortButton);
             this->Controls->Add(this->AddButton);
             this->Controls->Add(this->DeleteButton);
             this->Controls->Add(this->listBoxUsers);
@@ -126,18 +128,17 @@ namespace KursovaRobota {
 
         }
 
-        // Завантаження користувачів з JSON
+        // Загрузка пользователей из файла JSON
         void loadUsers() {
             users = UserRead::readUsersFromJSON("users.json");
 
-            // Додаємо користувачів у ListBox
             for each (User ^ user in users) {
                 System::String^ info = user->getRole() + ": " + user->getName() + " (Email: " + user->getEmail() + ")";
                 this->listBoxUsers->Items->Add(info);
             }
         }
 
-        // Метод для збереження користувачів у JSON
+        // Сохранение пользователей обратно в JSON-файл
         void saveUsersToJSON() {
             json j;
 
@@ -145,31 +146,61 @@ namespace KursovaRobota {
                 json userJson;
                 userJson["role"] = msclr::interop::marshal_as<std::string>(user->getRole());
                 userJson["name"] = msclr::interop::marshal_as<std::string>(user->getName());
-                userJson["email"] = msclr::interop::marshal_as<std::string>(user->getEmail());  // Зберігаємо email
+                userJson["email"] = msclr::interop::marshal_as<std::string>(user->getEmail());
                 j.push_back(userJson);
             }
 
-            // Записуємо JSON-файл
             std::ofstream file("users.json");
-            file << j.dump(4);  // Форматований JSON
+            file << j.dump(4);
+        }
+
+        // Статическая функция для сравнения пользователей по роли
+        static bool CompareUsers(const json& user1, const json& user2) {
+            std::string role1 = user1["role"];
+            std::string role2 = user2["role"];
+
+            // Приоритет ролей: Admin > Member > Guest
+            std::map<std::string, int> rolePriority = { {"Admin", 1}, {"Member", 2}, {"Guest", 3} };
+
+            return rolePriority[role1] < rolePriority[role2];
+        }
+
+        // Метод для сортировки пользователей в файле JSON
+        void sortUsersInFile() {
+            // Чтение пользователей из JSON-файла
+            std::ifstream inputFile("users.json");
+            json usersJson;
+
+            if (inputFile.is_open()) {
+                inputFile >> usersJson;
+                inputFile.close();
+            }
+
+            // Сортировка пользователей по роли
+            std::sort(usersJson.begin(), usersJson.end(), CompareUsers);
+
+            // Запись отсортированных пользователей обратно в файл
+            std::ofstream outputFile("users.json");
+            outputFile << usersJson.dump(4);  // Запись с отступами
+            outputFile.close();
+
+            // Перезагружаем отображение пользователей после сортировки
+            MessageBox::Show("Користувачі відсортовані за роллю у файлі users.json");
         }
 
 #pragma endregion
     private:
         System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-            this->Close();  // Закриваємо форму
-            mainForm->Show();  // Відновлюємо головну форму
+            this->Close();
+            mainForm->Show();
         }
 
-        // Видалення користувача
+        // Удаление пользователя
         System::Void button1_Click_1(System::Object^ sender, System::EventArgs^ e) {
             int selectedIndex = this->listBoxUsers->SelectedIndex;
             if (selectedIndex != -1) {
-                // Видаляємо вибраного користувача зі списку
                 users->RemoveAt(selectedIndex);
                 listBoxUsers->Items->RemoveAt(selectedIndex);
-
-                // Оновлюємо JSON після видалення
                 saveUsersToJSON();
             }
             else {
@@ -177,25 +208,26 @@ namespace KursovaRobota {
             }
         }
 
-
-// Додавання нового користувача
+        // Добавление нового пользователя
         System::Void button1_Click_2(System::Object^ sender, System::EventArgs^ e) {
             AddUserForm^ newform = gcnew AddUserForm();
-
-            // Подписываемся на событие добавления пользователя
             newform->UserAdded += gcnew AddUserForm::UserAddedHandler(this, &UsersCatalog::OnUserAdded);
-
-            // Открываем форму
             newform->ShowDialog();
         }
 
-        // Обработчик события добавления пользователя
+        // Обработчик добавления пользователя
         void OnUserAdded() {
-            this->listBoxUsers->Items->Clear();  // Очистить текущий список
-            loadUsers();  // Заново загрузить всех пользователей из JSON
+            this->listBoxUsers->Items->Clear();
+            loadUsers();
         }
 
-};
+        // Сортировка списка пользователей по ролям
+        System::Void SortButton_Click(System::Object^ sender, System::EventArgs^ e) {
+            sortUsersInFile();  // Сортировка пользователей в файле JSON
+            listBoxUsers->Items->Clear();
+            loadUsers();  // Перезагрузка списка пользователей
+        }
+    };
 }
 
 

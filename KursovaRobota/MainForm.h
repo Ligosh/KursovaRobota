@@ -1,5 +1,6 @@
 #pragma once
 #include "UsersCatalog.h"
+#include "BooksCatalog.h"
 namespace KursovaRobota {
 
 	using namespace System;
@@ -75,8 +76,9 @@ namespace KursovaRobota {
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(91, 87);
 			this->button2->TabIndex = 1;
-			this->button2->Text = L"button2";
+			this->button2->Text = L"Каталог книг";
 			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &MainForm::button2_Click);
 			// 
 			// button3
 			// 
@@ -99,7 +101,7 @@ namespace KursovaRobota {
 			this->MaximizeBox = false;
 			this->Name = L"MainForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-			this->Text = L"MainForm";
+			this->Text = L"Головна";
 			this->ResumeLayout(false);
 
 		}
@@ -107,6 +109,12 @@ namespace KursovaRobota {
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 		// Створюємо нову форму
 		UsersCatalog^ newForm = gcnew UsersCatalog(this);
+		this->Hide();  // Приховуємо поточну (головну) форму
+		newForm->Show();  // Відкриваємо нову форму
+	}
+	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+		// Створюємо нову форму
+		BooksCatalog^ newForm = gcnew BooksCatalog(this);
 		this->Hide();  // Приховуємо поточну (головну) форму
 		newForm->Show();  // Відкриваємо нову форму
 	}

@@ -99,6 +99,8 @@ namespace KursovaRobota {
             this->Controls->Add(this->cmbRole);
             this->Controls->Add(this->txtEmail);
             this->Controls->Add(this->txtName);
+            this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedDialog;
+            this->MaximizeBox = false;
             this->Name = L"AddUserForm";
             this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
             this->Text = L"Додавання користувача";

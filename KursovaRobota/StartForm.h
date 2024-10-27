@@ -80,7 +80,7 @@ namespace KursovaRobota {
 			this->MaximizeBox = false;
 			this->Name = L"StartForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-			this->Text = L"StartForm";
+			this->Text = L"Початок";
 			this->ResumeLayout(false);
 
 		}
