@@ -66,14 +66,16 @@ namespace KursovaRobota {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(InputForm::typeid));
 			this->SuspendLayout();
 			// 
 			// InputForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(227, 143);
+			this->ClientSize = System::Drawing::Size(207, 134);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedDialog;
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->MaximizeBox = false;
 			this->Name = L"InputForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;

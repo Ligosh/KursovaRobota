@@ -49,6 +49,7 @@ namespace KursovaRobota {
 #pragma region Windows Form Designer generated code
         void InitializeComponent(void)
         {
+            System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(AddUserForm::typeid));
             this->txtName = (gcnew System::Windows::Forms::TextBox());
             this->txtEmail = (gcnew System::Windows::Forms::TextBox());
             this->cmbRole = (gcnew System::Windows::Forms::ComboBox());
@@ -61,7 +62,7 @@ namespace KursovaRobota {
             this->txtName->Name = L"txtName";
             this->txtName->Size = System::Drawing::Size(200, 20);
             this->txtName->TabIndex = 0;
-            this->txtName->Text = L"Enter Name";
+            this->txtName->Text = L"Ім\'я";
             // 
             // txtEmail
             // 
@@ -69,7 +70,7 @@ namespace KursovaRobota {
             this->txtEmail->Name = L"txtEmail";
             this->txtEmail->Size = System::Drawing::Size(200, 20);
             this->txtEmail->TabIndex = 1;
-            this->txtEmail->Text = L"Enter Email";
+            this->txtEmail->Text = L"Email";
             // 
             // cmbRole
             // 
@@ -82,12 +83,14 @@ namespace KursovaRobota {
             // 
             // btnSave
             // 
+            this->btnSave->BackColor = System::Drawing::Color::White;
+            this->btnSave->FlatAppearance->BorderColor = System::Drawing::SystemColors::ActiveCaptionText;
             this->btnSave->Location = System::Drawing::Point(25, 130);
             this->btnSave->Name = L"btnSave";
-            this->btnSave->Size = System::Drawing::Size(75, 23);
+            this->btnSave->Size = System::Drawing::Size(75, 24);
             this->btnSave->TabIndex = 3;
-            this->btnSave->Text = L"Save";
-            this->btnSave->UseVisualStyleBackColor = true;
+            this->btnSave->Text = L"Зберегти";
+            this->btnSave->UseVisualStyleBackColor = false;
             this->btnSave->Click += gcnew System::EventHandler(this, &AddUserForm::btnSave_Click);
             // 
             // AddUserForm
@@ -100,10 +103,11 @@ namespace KursovaRobota {
             this->Controls->Add(this->txtEmail);
             this->Controls->Add(this->txtName);
             this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedDialog;
+            this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
             this->MaximizeBox = false;
             this->Name = L"AddUserForm";
             this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-            this->Text = L"Додавання користувача";
+            this->Text = L"Додавання користувача - Система керування бібліотекою";
             this->ResumeLayout(false);
             this->PerformLayout();
 

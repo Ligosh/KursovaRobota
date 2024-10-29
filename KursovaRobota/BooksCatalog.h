@@ -60,6 +60,7 @@ namespace KursovaRobota {
 #pragma region Windows Form Designer generated code
         void InitializeComponent(void)
         {
+            System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(BooksCatalog::typeid));
             this->BackButton1 = (gcnew System::Windows::Forms::Button());
             this->listBoxBooks = (gcnew System::Windows::Forms::ListBox());
             this->DeleteButton = (gcnew System::Windows::Forms::Button());
@@ -73,80 +74,89 @@ namespace KursovaRobota {
             // 
             // BackButton1
             // 
+            this->BackButton1->BackColor = System::Drawing::SystemColors::ControlLightLight;
+            this->BackButton1->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"BackButton1.BackgroundImage")));
+            this->BackButton1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
             this->BackButton1->Location = System::Drawing::Point(12, 12);
             this->BackButton1->Name = L"BackButton1";
-            this->BackButton1->Size = System::Drawing::Size(88, 23);
+            this->BackButton1->Size = System::Drawing::Size(54, 33);
             this->BackButton1->TabIndex = 0;
-            this->BackButton1->Text = L"Повернутися";
-            this->BackButton1->UseVisualStyleBackColor = true;
+            this->BackButton1->UseVisualStyleBackColor = false;
             this->BackButton1->Click += gcnew System::EventHandler(this, &BooksCatalog::BackButton1_Click);
             // 
             // listBoxBooks
             // 
+            this->listBoxBooks->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
             this->listBoxBooks->FormattingEnabled = true;
-            this->listBoxBooks->Location = System::Drawing::Point(106, 32);
+            this->listBoxBooks->Location = System::Drawing::Point(106, 12);
             this->listBoxBooks->Name = L"listBoxBooks";
             this->listBoxBooks->Size = System::Drawing::Size(300, 264);
             this->listBoxBooks->TabIndex = 1;
             // 
             // DeleteButton
             // 
-            this->DeleteButton->Location = System::Drawing::Point(12, 52);
+            this->DeleteButton->BackColor = System::Drawing::SystemColors::ControlLightLight;
+            this->DeleteButton->Location = System::Drawing::Point(12, 68);
             this->DeleteButton->Name = L"DeleteButton";
             this->DeleteButton->Size = System::Drawing::Size(75, 23);
             this->DeleteButton->TabIndex = 2;
             this->DeleteButton->Text = L"Видалити";
-            this->DeleteButton->UseVisualStyleBackColor = true;
+            this->DeleteButton->UseVisualStyleBackColor = false;
             this->DeleteButton->Click += gcnew System::EventHandler(this, &BooksCatalog::DeleteButton_Click);
             // 
             // AddButton
             // 
-            this->AddButton->Location = System::Drawing::Point(12, 81);
+            this->AddButton->BackColor = System::Drawing::SystemColors::ControlLightLight;
+            this->AddButton->Location = System::Drawing::Point(12, 97);
             this->AddButton->Name = L"AddButton";
             this->AddButton->Size = System::Drawing::Size(75, 23);
             this->AddButton->TabIndex = 3;
             this->AddButton->Text = L"Додати";
-            this->AddButton->UseVisualStyleBackColor = true;
+            this->AddButton->UseVisualStyleBackColor = false;
             this->AddButton->Click += gcnew System::EventHandler(this, &BooksCatalog::AddButton_Click);
             // 
             // SortByYearButton
             // 
-            this->SortByYearButton->Location = System::Drawing::Point(255, 304);
+            this->SortByYearButton->BackColor = System::Drawing::SystemColors::ControlLightLight;
+            this->SortByYearButton->Location = System::Drawing::Point(255, 289);
             this->SortByYearButton->Name = L"SortByYearButton";
             this->SortByYearButton->Size = System::Drawing::Size(70, 21);
             this->SortByYearButton->TabIndex = 4;
             this->SortByYearButton->Text = L"Роком";
-            this->SortByYearButton->UseVisualStyleBackColor = true;
+            this->SortByYearButton->UseVisualStyleBackColor = false;
             this->SortByYearButton->Click += gcnew System::EventHandler(this, &BooksCatalog::SortByYear_Click);
             // 
             // SortByQuantityButton
             // 
-            this->SortByQuantityButton->Location = System::Drawing::Point(331, 304);
+            this->SortByQuantityButton->BackColor = System::Drawing::SystemColors::ControlLightLight;
+            this->SortByQuantityButton->Location = System::Drawing::Point(331, 289);
             this->SortByQuantityButton->Name = L"SortByQuantityButton";
             this->SortByQuantityButton->Size = System::Drawing::Size(75, 21);
             this->SortByQuantityButton->TabIndex = 5;
             this->SortByQuantityButton->Text = L"Кількістю";
-            this->SortByQuantityButton->UseVisualStyleBackColor = true;
+            this->SortByQuantityButton->UseVisualStyleBackColor = false;
             this->SortByQuantityButton->Click += gcnew System::EventHandler(this, &BooksCatalog::SortByQuantity_Click);
             // 
             // SortByTitleButton
             // 
-            this->SortByTitleButton->Location = System::Drawing::Point(178, 304);
+            this->SortByTitleButton->BackColor = System::Drawing::SystemColors::ControlLightLight;
+            this->SortByTitleButton->Location = System::Drawing::Point(178, 289);
             this->SortByTitleButton->Name = L"SortByTitleButton";
             this->SortByTitleButton->Size = System::Drawing::Size(71, 21);
             this->SortByTitleButton->TabIndex = 6;
             this->SortByTitleButton->Text = L"Назвою";
-            this->SortByTitleButton->UseVisualStyleBackColor = true;
+            this->SortByTitleButton->UseVisualStyleBackColor = false;
             this->SortByTitleButton->Click += gcnew System::EventHandler(this, &BooksCatalog::SortByTitle_Click);
             // 
             // EditQuantityButton
             // 
-            this->EditQuantityButton->Location = System::Drawing::Point(12, 110);
+            this->EditQuantityButton->BackColor = System::Drawing::SystemColors::ControlLightLight;
+            this->EditQuantityButton->Location = System::Drawing::Point(12, 126);
             this->EditQuantityButton->Name = L"EditQuantityButton";
             this->EditQuantityButton->Size = System::Drawing::Size(75, 40);
             this->EditQuantityButton->TabIndex = 7;
             this->EditQuantityButton->Text = L"Змінити кількість";
-            this->EditQuantityButton->UseVisualStyleBackColor = true;
+            this->EditQuantityButton->UseVisualStyleBackColor = false;
             this->EditQuantityButton->Click += gcnew System::EventHandler(this, &BooksCatalog::EditQuantityButton_Click);
             // 
             // label1
@@ -154,7 +164,7 @@ namespace KursovaRobota {
             this->label1->AutoSize = true;
             this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(204)));
-            this->label1->Location = System::Drawing::Point(87, 306);
+            this->label1->Location = System::Drawing::Point(87, 289);
             this->label1->Name = L"label1";
             this->label1->Size = System::Drawing::Size(85, 15);
             this->label1->TabIndex = 8;
@@ -175,10 +185,11 @@ namespace KursovaRobota {
             this->Controls->Add(this->listBoxBooks);
             this->Controls->Add(this->BackButton1);
             this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedDialog;
+            this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
             this->MaximizeBox = false;
             this->Name = L"BooksCatalog";
             this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-            this->Text = L"Каталог книг";
+            this->Text = L"Каталог книг - Система керування бібліотекою";
             this->ResumeLayout(false);
             this->PerformLayout();
 

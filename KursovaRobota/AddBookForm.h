@@ -44,6 +44,7 @@ namespace KursovaRobota {
 #pragma region Windows Form Designer generated code
         void InitializeComponent(void)
         {
+            System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(AddBookForm::typeid));
             this->txtTitle = (gcnew System::Windows::Forms::TextBox());
             this->txtAuthor = (gcnew System::Windows::Forms::TextBox());
             this->txtYear = (gcnew System::Windows::Forms::TextBox());
@@ -57,7 +58,7 @@ namespace KursovaRobota {
             this->txtTitle->Name = L"txtTitle";
             this->txtTitle->Size = System::Drawing::Size(200, 20);
             this->txtTitle->TabIndex = 0;
-            this->txtTitle->Text = L"Enter Title";
+            this->txtTitle->Text = L"Назва";
             // 
             // txtAuthor
             // 
@@ -65,7 +66,7 @@ namespace KursovaRobota {
             this->txtAuthor->Name = L"txtAuthor";
             this->txtAuthor->Size = System::Drawing::Size(200, 20);
             this->txtAuthor->TabIndex = 1;
-            this->txtAuthor->Text = L"Enter Author";
+            this->txtAuthor->Text = L"Автор";
             // 
             // txtYear
             // 
@@ -73,7 +74,7 @@ namespace KursovaRobota {
             this->txtYear->Name = L"txtYear";
             this->txtYear->Size = System::Drawing::Size(200, 20);
             this->txtYear->TabIndex = 2;
-            this->txtYear->Text = L"Enter Year";
+            this->txtYear->Text = L"Рік";
             // 
             // txtQuantity
             // 
@@ -81,16 +82,17 @@ namespace KursovaRobota {
             this->txtQuantity->Name = L"txtQuantity";
             this->txtQuantity->Size = System::Drawing::Size(200, 20);
             this->txtQuantity->TabIndex = 3;
-            this->txtQuantity->Text = L"Enter Quantity";
+            this->txtQuantity->Text = L"Кількість";
             // 
             // btnSave
             // 
+            this->btnSave->BackColor = System::Drawing::SystemColors::ControlLightLight;
             this->btnSave->Location = System::Drawing::Point(25, 160);
             this->btnSave->Name = L"btnSave";
             this->btnSave->Size = System::Drawing::Size(75, 23);
             this->btnSave->TabIndex = 4;
-            this->btnSave->Text = L"Save";
-            this->btnSave->UseVisualStyleBackColor = true;
+            this->btnSave->Text = L"Зберегти";
+            this->btnSave->UseVisualStyleBackColor = false;
             this->btnSave->Click += gcnew System::EventHandler(this, &AddBookForm::btnSave_Click);
             // 
             // AddBookForm
@@ -102,9 +104,11 @@ namespace KursovaRobota {
             this->Controls->Add(this->txtAuthor);
             this->Controls->Add(this->txtTitle);
             this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedDialog;
+            this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
             this->MaximizeBox = false;
             this->Name = L"AddBookForm";
             this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
+            this->Text = L"Додавання книги - Система керування бібліотекою";
             this->ResumeLayout(false);
             this->PerformLayout();
 

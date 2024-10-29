@@ -35,6 +35,7 @@ namespace KursovaRobota {
 			}
 		}
 	private: System::Windows::Forms::Button^ StartButton;
+	private: System::Windows::Forms::Label^ label1;
 	protected:
 
 	protected:
@@ -54,6 +55,7 @@ namespace KursovaRobota {
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(StartForm::typeid));
 			this->StartButton = (gcnew System::Windows::Forms::Button());
+			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
 			// StartButton
@@ -69,19 +71,36 @@ namespace KursovaRobota {
 			this->StartButton->UseVisualStyleBackColor = true;
 			this->StartButton->Click += gcnew System::EventHandler(this, &StartForm::button1_Click);
 			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->Cursor = System::Windows::Forms::Cursors::Default;
+			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->label1->ForeColor = System::Drawing::SystemColors::ControlText;
+			this->label1->Location = System::Drawing::Point(100, 84);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(447, 31);
+			this->label1->TabIndex = 1;
+			this->label1->Text = L"Система керування бібліотекою";
+			this->label1->Click += gcnew System::EventHandler(this, &StartForm::label1_Click);
+			// 
 			// StartForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->ClientSize = System::Drawing::Size(653, 352);
+			this->Controls->Add(this->label1);
 			this->Controls->Add(this->StartButton);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedDialog;
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->MaximizeBox = false;
 			this->Name = L"StartForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-			this->Text = L"Початок";
+			this->Text = L"Початок - Система керування бібліотекою";
 			this->ResumeLayout(false);
+			this->PerformLayout();
 
 		}
 #pragma endregion
@@ -90,6 +109,8 @@ namespace KursovaRobota {
 
 		// Закриваємо форму
 		this->Close();
+	}
+	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 	};
 }

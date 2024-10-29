@@ -54,6 +54,7 @@ namespace KursovaRobota {
 #pragma region Windows Form Designer generated code
         void InitializeComponent(void)
         {
+            System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(UsersCatalog::typeid));
             this->BackButton1 = (gcnew System::Windows::Forms::Button());
             this->listBoxUsers = (gcnew System::Windows::Forms::ListBox());
             this->DeleteButton = (gcnew System::Windows::Forms::Button());
@@ -63,56 +64,65 @@ namespace KursovaRobota {
             // 
             // BackButton1
             // 
+            this->BackButton1->BackColor = System::Drawing::SystemColors::ControlLightLight;
+            this->BackButton1->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"BackButton1.BackgroundImage")));
+            this->BackButton1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+            this->BackButton1->FlatAppearance->BorderColor = System::Drawing::Color::Black;
+            this->BackButton1->ForeColor = System::Drawing::SystemColors::ControlText;
             this->BackButton1->Location = System::Drawing::Point(12, 12);
             this->BackButton1->Name = L"BackButton1";
-            this->BackButton1->Size = System::Drawing::Size(86, 31);
+            this->BackButton1->Size = System::Drawing::Size(54, 33);
             this->BackButton1->TabIndex = 0;
-            this->BackButton1->Text = L"Повернутися";
-            this->BackButton1->UseVisualStyleBackColor = true;
+            this->BackButton1->UseVisualStyleBackColor = false;
             this->BackButton1->Click += gcnew System::EventHandler(this, &UsersCatalog::button1_Click);
             // 
             // listBoxUsers
             // 
+            this->listBoxUsers->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
             this->listBoxUsers->FormattingEnabled = true;
-            this->listBoxUsers->Location = System::Drawing::Point(116, 12);
+            this->listBoxUsers->Location = System::Drawing::Point(81, 12);
             this->listBoxUsers->Name = L"listBoxUsers";
             this->listBoxUsers->Size = System::Drawing::Size(310, 225);
             this->listBoxUsers->TabIndex = 1;
             // 
             // DeleteButton
             // 
-            this->DeleteButton->Location = System::Drawing::Point(13, 50);
+            this->DeleteButton->BackColor = System::Drawing::SystemColors::ControlLightLight;
+            this->DeleteButton->Location = System::Drawing::Point(397, 12);
             this->DeleteButton->Name = L"DeleteButton";
             this->DeleteButton->Size = System::Drawing::Size(85, 32);
             this->DeleteButton->TabIndex = 2;
             this->DeleteButton->Text = L"Видалити";
-            this->DeleteButton->UseVisualStyleBackColor = true;
+            this->DeleteButton->UseVisualStyleBackColor = false;
             this->DeleteButton->Click += gcnew System::EventHandler(this, &UsersCatalog::button1_Click_1);
             // 
             // AddButton
             // 
-            this->AddButton->Location = System::Drawing::Point(13, 90);
+            this->AddButton->BackColor = System::Drawing::SystemColors::ControlLightLight;
+            this->AddButton->Location = System::Drawing::Point(397, 50);
             this->AddButton->Name = L"AddButton";
             this->AddButton->Size = System::Drawing::Size(85, 32);
             this->AddButton->TabIndex = 3;
             this->AddButton->Text = L"Додати";
-            this->AddButton->UseVisualStyleBackColor = true;
+            this->AddButton->UseVisualStyleBackColor = false;
             this->AddButton->Click += gcnew System::EventHandler(this, &UsersCatalog::button1_Click_2);
             // 
             // SortButton
             // 
-            this->SortButton->Location = System::Drawing::Point(13, 130);
+            this->SortButton->BackColor = System::Drawing::SystemColors::ControlLightLight;
+            this->SortButton->Location = System::Drawing::Point(397, 88);
             this->SortButton->Name = L"SortButton";
             this->SortButton->Size = System::Drawing::Size(85, 38);
             this->SortButton->TabIndex = 4;
             this->SortButton->Text = L"Сортувати за типом";
-            this->SortButton->UseVisualStyleBackColor = true;
+            this->SortButton->UseVisualStyleBackColor = false;
             this->SortButton->Click += gcnew System::EventHandler(this, &UsersCatalog::SortButton_Click);
             // 
             // UsersCatalog
             // 
             this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
             this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+            this->BackColor = System::Drawing::SystemColors::Control;
             this->ClientSize = System::Drawing::Size(494, 287);
             this->Controls->Add(this->SortButton);
             this->Controls->Add(this->AddButton);
@@ -120,10 +130,11 @@ namespace KursovaRobota {
             this->Controls->Add(this->listBoxUsers);
             this->Controls->Add(this->BackButton1);
             this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedDialog;
+            this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
             this->MaximizeBox = false;
             this->Name = L"UsersCatalog";
             this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-            this->Text = L"Каталог користувачів";
+            this->Text = L"Каталог користувачів - Система керування бібліотекою";
             this->ResumeLayout(false);
 
         }
