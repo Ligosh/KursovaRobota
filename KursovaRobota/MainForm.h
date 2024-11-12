@@ -1,6 +1,7 @@
 #pragma once
 #include "UsersCatalog.h"
 #include "BooksCatalog.h"
+#include "Reservation.h"
 namespace KursovaRobota {
 
 	using namespace System;
@@ -97,8 +98,9 @@ namespace KursovaRobota {
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(104, 44);
 			this->button3->TabIndex = 2;
-			this->button3->Text = L"button3";
+			this->button3->Text = L"Бронювання";
 			this->button3->UseVisualStyleBackColor = true;
+			this->button3->Click += gcnew System::EventHandler(this, &MainForm::button3_Click);
 			// 
 			// pictureBox1
 			// 
@@ -175,5 +177,12 @@ namespace KursovaRobota {
 		this->Hide();  // Приховуємо поточну (головну) форму
 		newForm->Show();  // Відкриваємо нову форму
 	}
-	};
+	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
+		// Создаем новую форму бронирования
+		Reservation^ reservationForm = gcnew Reservation(this);
+		this->Hide();  // Скрываем текущую (главную) форму
+		reservationForm->Show();  // Показываем форму бронирования
+}
+
+};
 	};

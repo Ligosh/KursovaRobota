@@ -128,6 +128,7 @@
     <ClCompile Include="InputForm.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MainForm.cpp" />
+    <ClCompile Include="Reservation.cpp" />
     <ClCompile Include="StartForm.cpp" />
     <ClCompile Include="UsersCatalog.cpp" />
   </ItemGroup>
@@ -151,6 +152,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Member.h" />
+    <ClInclude Include="Reservation.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="StartForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -176,6 +180,9 @@
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reservation.resx">
+      <DependentUpon>Reservation.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="StartForm.resx">
       <DependentUpon>StartForm.h</DependentUpon>
     </EmbeddedResource>
@@ -188,6 +195,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="books.csv" />
+    <None Include="reservation.csv" />
     <None Include="users.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
