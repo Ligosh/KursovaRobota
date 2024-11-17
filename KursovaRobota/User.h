@@ -10,7 +10,6 @@ protected:
 public:
     User(System::String^ name, System::String^ email) : name(name), email(email) {}
 
-    // Чисто віртуальний метод
     virtual System::String^ getRole() = 0;
 
     System::String^ getName() { return name; }

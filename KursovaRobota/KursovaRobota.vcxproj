@@ -80,6 +80,7 @@
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>C:\Users\NSI\source\repos\KursovaRobota\KursovaRobota\dependencies\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <AdditionalDependencies />
@@ -125,11 +126,14 @@
     <ClCompile Include="AddBookForm.cpp" />
     <ClCompile Include="AddUserForm.cpp" />
     <ClCompile Include="BooksCatalog.cpp" />
+    <ClCompile Include="HelpForm.cpp" />
+    <ClCompile Include="InfoForm.cpp" />
     <ClCompile Include="InputForm.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MainForm.cpp" />
     <ClCompile Include="Reservation.cpp" />
     <ClCompile Include="StartForm.cpp" />
+    <ClCompile Include="UserRead.cpp" />
     <ClCompile Include="UsersCatalog.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -144,7 +148,14 @@
     <ClInclude Include="BooksCatalog.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="ExceptionHandler.h" />
     <ClInclude Include="Guest.h" />
+    <ClInclude Include="HelpForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="InfoForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="InputForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -173,6 +184,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BooksCatalog.resx">
       <DependentUpon>BooksCatalog.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HelpForm.resx">
+      <DependentUpon>HelpForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InfoForm.resx">
+      <DependentUpon>InfoForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InputForm.resx">
       <DependentUpon>InputForm.h</DependentUpon>
