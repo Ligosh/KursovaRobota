@@ -29,7 +29,7 @@ namespace KursovaRobota {
 		this->StartButton->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 		this->StartButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 			static_cast<System::Byte>(204)));
-		this->StartButton->Location = System::Drawing::Point(270, 241);
+		this->StartButton->Location = System::Drawing::Point(264, 239);
 		this->StartButton->Name = L"StartButton";
 		this->StartButton->Size = System::Drawing::Size(116, 44);
 		this->StartButton->TabIndex = 0;
@@ -68,6 +68,7 @@ namespace KursovaRobota {
 		this->Text = L"Початок - Система керування бібліотекою";
 		this->ResumeLayout(false);
 		this->PerformLayout();
+
 	}
 
 	void StartForm::button1_Click(System::Object^ sender, System::EventArgs^ e)

@@ -33,6 +33,8 @@ namespace KursovaRobota {
         List<Book^>^ books;
 
         System::ComponentModel::Container^ components;
+    private: System::Windows::Forms::Label^ SortLabel;
+
 
     public:
         BooksCatalog(Form^ form);

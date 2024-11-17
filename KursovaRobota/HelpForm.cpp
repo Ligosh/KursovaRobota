@@ -25,19 +25,22 @@ namespace KursovaRobota {
         this->label4 = (gcnew System::Windows::Forms::Label());
         this->BackButton = (gcnew System::Windows::Forms::Button());
         this->SuspendLayout();
-
+        // 
         // label1
+        // 
         this->label1->AutoSize = true;
         this->label1->BackColor = System::Drawing::SystemColors::ControlLight;
         this->label1->Font = (gcnew System::Drawing::Font(L"Times New Roman", 12));
         this->label1->ForeColor = System::Drawing::SystemColors::ControlText;
-        this->label1->Location = System::Drawing::Point(11, 45);
+        this->label1->Location = System::Drawing::Point(12, 45);
         this->label1->Name = L"label1";
         this->label1->Size = System::Drawing::Size(379, 38);
         this->label1->TabIndex = 0;
-        this->label1->Text = L"Головна сторінка програми містить три кнопки,\r\nкожна забезпечує доступ до власного меню керування:";
-
+        this->label1->Text = L"Головна сторінка програми містить три кнопки,\r\nкожна забезпечує доступ до власног"
+            L"о меню керування:";
+        // 
         // label2
+        // 
         this->label2->AutoSize = true;
         this->label2->BackColor = System::Drawing::SystemColors::ControlLight;
         this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9));
@@ -46,8 +49,9 @@ namespace KursovaRobota {
         this->label2->Size = System::Drawing::Size(441, 60);
         this->label2->TabIndex = 1;
         this->label2->Text = resources->GetString(L"label2.Text");
-
+        // 
         // label3
+        // 
         this->label3->AutoSize = true;
         this->label3->BackColor = System::Drawing::SystemColors::ControlLight;
         this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9));
@@ -56,8 +60,9 @@ namespace KursovaRobota {
         this->label3->Size = System::Drawing::Size(452, 90);
         this->label3->TabIndex = 2;
         this->label3->Text = resources->GetString(L"label3.Text");
-
+        // 
         // label4
+        // 
         this->label4->AutoSize = true;
         this->label4->BackColor = System::Drawing::SystemColors::ControlLight;
         this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9));
@@ -66,8 +71,9 @@ namespace KursovaRobota {
         this->label4->Size = System::Drawing::Size(446, 90);
         this->label4->TabIndex = 3;
         this->label4->Text = resources->GetString(L"label4.Text");
-
+        // 
         // BackButton
+        // 
         this->BackButton->BackColor = System::Drawing::Color::DeepSkyBlue;
         this->BackButton->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"BackButton.BackgroundImage")));
         this->BackButton->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
@@ -77,8 +83,9 @@ namespace KursovaRobota {
         this->BackButton->TabIndex = 4;
         this->BackButton->UseVisualStyleBackColor = false;
         this->BackButton->Click += gcnew System::EventHandler(this, &HelpForm::BackButton_Click);
-
+        // 
         // HelpForm
+        // 
         this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
         this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
         this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
@@ -97,6 +104,7 @@ namespace KursovaRobota {
         this->Text = L"Допомога";
         this->ResumeLayout(false);
         this->PerformLayout();
+
     }
 
     void HelpForm::BackButton_Click(System::Object^ sender, System::EventArgs^ e)

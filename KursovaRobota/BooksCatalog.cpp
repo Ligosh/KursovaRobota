@@ -28,7 +28,7 @@ namespace KursovaRobota {
         this->SortByQuantityButton = (gcnew System::Windows::Forms::Button());
         this->SortByTitleButton = (gcnew System::Windows::Forms::Button());
         this->EditQuantityButton = (gcnew System::Windows::Forms::Button());
-        this->label1 = (gcnew System::Windows::Forms::Label());
+        this->SortLabel = (gcnew System::Windows::Forms::Label());
         this->SuspendLayout();
         // 
         // BackButton1
@@ -118,16 +118,16 @@ namespace KursovaRobota {
         this->EditQuantityButton->UseVisualStyleBackColor = false;
         this->EditQuantityButton->Click += gcnew System::EventHandler(this, &BooksCatalog::EditQuantityButton_Click);
         // 
-        // label1
+        // SortLabel
         // 
-        this->label1->AutoSize = true;
-        this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+        this->SortLabel->AutoSize = true;
+        this->SortLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
             static_cast<System::Byte>(204)));
-        this->label1->Location = System::Drawing::Point(87, 289);
-        this->label1->Name = L"label1";
-        this->label1->Size = System::Drawing::Size(85, 15);
-        this->label1->TabIndex = 8;
-        this->label1->Text = L"Сортувати за";
+        this->SortLabel->Location = System::Drawing::Point(87, 291);
+        this->SortLabel->Name = L"SortLabel";
+        this->SortLabel->Size = System::Drawing::Size(85, 15);
+        this->SortLabel->TabIndex = 8;
+        this->SortLabel->Text = L"Сортувати за";
         // 
         // BooksCatalog
         // 
@@ -136,7 +136,7 @@ namespace KursovaRobota {
         this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
         this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
         this->ClientSize = System::Drawing::Size(425, 336);
-        this->Controls->Add(this->label1);
+        this->Controls->Add(this->SortLabel);
         this->Controls->Add(this->EditQuantityButton);
         this->Controls->Add(this->SortByTitleButton);
         this->Controls->Add(this->SortByQuantityButton);
@@ -153,6 +153,7 @@ namespace KursovaRobota {
         this->Text = L"Каталог книг - Система керування бібліотекою";
         this->ResumeLayout(false);
         this->PerformLayout();
+
     }
 
     void BooksCatalog::BackButton1_Click(System::Object^ sender, System::EventArgs^ e)

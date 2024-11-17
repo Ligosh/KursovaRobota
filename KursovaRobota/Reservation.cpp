@@ -81,7 +81,7 @@ namespace KursovaRobota {
         // DeleteButton
         // 
         this->DeleteButton->BackColor = System::Drawing::Color::DeepSkyBlue;
-        this->DeleteButton->Location = System::Drawing::Point(239, 157);
+        this->DeleteButton->Location = System::Drawing::Point(253, 157);
         this->DeleteButton->Name = L"DeleteButton";
         this->DeleteButton->Size = System::Drawing::Size(78, 23);
         this->DeleteButton->TabIndex = 5;
@@ -92,7 +92,7 @@ namespace KursovaRobota {
         // SortButton
         // 
         this->SortButton->BackColor = System::Drawing::Color::DeepSkyBlue;
-        this->SortButton->Location = System::Drawing::Point(339, 157);
+        this->SortButton->Location = System::Drawing::Point(349, 157);
         this->SortButton->Name = L"SortButton";
         this->SortButton->Size = System::Drawing::Size(78, 23);
         this->SortButton->TabIndex = 6;
@@ -119,6 +119,7 @@ namespace KursovaRobota {
         this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
         this->Text = L"Reservation";
         this->ResumeLayout(false);
+
     }
 
     void Reservation::BackButton_Click(System::Object^ sender, System::EventArgs^ e)
