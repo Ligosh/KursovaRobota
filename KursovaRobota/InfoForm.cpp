@@ -26,6 +26,11 @@ namespace KursovaRobota {
 		this->label4 = (gcnew System::Windows::Forms::Label());
 		this->label5 = (gcnew System::Windows::Forms::Label());
 		this->label6 = (gcnew System::Windows::Forms::Label());
+		this->label7 = (gcnew System::Windows::Forms::Label());
+		this->label8 = (gcnew System::Windows::Forms::Label());
+		this->label9 = (gcnew System::Windows::Forms::Label());
+		this->label10 = (gcnew System::Windows::Forms::Label());
+		this->label11 = (gcnew System::Windows::Forms::Label());
 		this->SuspendLayout();
 		// 
 		// BackButton
@@ -111,6 +116,61 @@ namespace KursovaRobota {
 		this->label6->TabIndex = 11;
 		this->label6->Text = L"Обробка виняткових ситуацій:";
 		// 
+		// label7
+		// 
+		this->label7->AutoSize = true;
+		this->label7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			static_cast<System::Byte>(204)));
+		this->label7->Location = System::Drawing::Point(240, 64);
+		this->label7->Name = L"label7";
+		this->label7->Size = System::Drawing::Size(90, 16);
+		this->label7->TabIndex = 12;
+		this->label7->Text = L"Абрамов В.";
+		// 
+		// label8
+		// 
+		this->label8->AutoSize = true;
+		this->label8->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			static_cast<System::Byte>(204)));
+		this->label8->Location = System::Drawing::Point(200, 116);
+		this->label8->Name = L"label8";
+		this->label8->Size = System::Drawing::Size(96, 16);
+		this->label8->TabIndex = 13;
+		this->label8->Text = L"Онуфрієв К.";
+		// 
+		// label9
+		// 
+		this->label9->AutoSize = true;
+		this->label9->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			static_cast<System::Byte>(204)));
+		this->label9->Location = System::Drawing::Point(165, 166);
+		this->label9->Name = L"label9";
+		this->label9->Size = System::Drawing::Size(89, 16);
+		this->label9->TabIndex = 14;
+		this->label9->Text = L"Причина К.";
+		// 
+		// label10
+		// 
+		this->label10->AutoSize = true;
+		this->label10->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			static_cast<System::Byte>(204)));
+		this->label10->Location = System::Drawing::Point(191, 217);
+		this->label10->Name = L"label10";
+		this->label10->Size = System::Drawing::Size(87, 16);
+		this->label10->TabIndex = 15;
+		this->label10->Text = L"Косачов Т.";
+		// 
+		// label11
+		// 
+		this->label11->AutoSize = true;
+		this->label11->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			static_cast<System::Byte>(204)));
+		this->label11->Location = System::Drawing::Point(226, 273);
+		this->label11->Name = L"label11";
+		this->label11->Size = System::Drawing::Size(29, 16);
+		this->label11->TabIndex = 16;
+		this->label11->Text = L"Всі";
+		// 
 		// InfoForm
 		// 
 		this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -118,6 +178,11 @@ namespace KursovaRobota {
 		this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 		this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 		this->ClientSize = System::Drawing::Size(427, 324);
+		this->Controls->Add(this->label11);
+		this->Controls->Add(this->label10);
+		this->Controls->Add(this->label9);
+		this->Controls->Add(this->label8);
+		this->Controls->Add(this->label7);
 		this->Controls->Add(this->label6);
 		this->Controls->Add(this->label5);
 		this->Controls->Add(this->label4);

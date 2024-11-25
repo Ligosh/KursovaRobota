@@ -24,6 +24,11 @@ namespace KursovaRobota {
 		System::Windows::Forms::Label^ label4;
 		System::Windows::Forms::Label^ label5;
 		System::Windows::Forms::Label^ label6;
+	private: System::Windows::Forms::Label^ label7;
+	private: System::Windows::Forms::Label^ label8;
+	private: System::Windows::Forms::Label^ label9;
+	private: System::Windows::Forms::Label^ label10;
+	private: System::Windows::Forms::Label^ label11;
 
 		System::ComponentModel::Container^ components;
 
