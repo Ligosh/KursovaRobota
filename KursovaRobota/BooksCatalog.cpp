@@ -49,7 +49,7 @@ namespace KursovaRobota {
         this->listBoxBooks->FormattingEnabled = true;
         this->listBoxBooks->Location = System::Drawing::Point(106, 12);
         this->listBoxBooks->Name = L"listBoxBooks";
-        this->listBoxBooks->Size = System::Drawing::Size(300, 264);
+        this->listBoxBooks->Size = System::Drawing::Size(449, 264);
         this->listBoxBooks->TabIndex = 1;
         // 
         // DeleteButton
@@ -77,7 +77,7 @@ namespace KursovaRobota {
         // SortByYearButton
         // 
         this->SortByYearButton->BackColor = System::Drawing::Color::DeepSkyBlue;
-        this->SortByYearButton->Location = System::Drawing::Point(255, 289);
+        this->SortByYearButton->Location = System::Drawing::Point(275, 289);
         this->SortByYearButton->Name = L"SortByYearButton";
         this->SortByYearButton->Size = System::Drawing::Size(70, 21);
         this->SortByYearButton->TabIndex = 4;
@@ -88,7 +88,7 @@ namespace KursovaRobota {
         // SortByQuantityButton
         // 
         this->SortByQuantityButton->BackColor = System::Drawing::Color::DeepSkyBlue;
-        this->SortByQuantityButton->Location = System::Drawing::Point(331, 289);
+        this->SortByQuantityButton->Location = System::Drawing::Point(351, 289);
         this->SortByQuantityButton->Name = L"SortByQuantityButton";
         this->SortByQuantityButton->Size = System::Drawing::Size(75, 21);
         this->SortByQuantityButton->TabIndex = 5;
@@ -99,7 +99,7 @@ namespace KursovaRobota {
         // SortByTitleButton
         // 
         this->SortByTitleButton->BackColor = System::Drawing::Color::DeepSkyBlue;
-        this->SortByTitleButton->Location = System::Drawing::Point(178, 289);
+        this->SortByTitleButton->Location = System::Drawing::Point(198, 289);
         this->SortByTitleButton->Name = L"SortByTitleButton";
         this->SortByTitleButton->Size = System::Drawing::Size(71, 21);
         this->SortByTitleButton->TabIndex = 6;
@@ -123,7 +123,7 @@ namespace KursovaRobota {
         this->SortLabel->AutoSize = true;
         this->SortLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
             static_cast<System::Byte>(204)));
-        this->SortLabel->Location = System::Drawing::Point(87, 291);
+        this->SortLabel->Location = System::Drawing::Point(103, 291);
         this->SortLabel->Name = L"SortLabel";
         this->SortLabel->Size = System::Drawing::Size(85, 15);
         this->SortLabel->TabIndex = 8;
@@ -135,7 +135,7 @@ namespace KursovaRobota {
         this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
         this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
         this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-        this->ClientSize = System::Drawing::Size(425, 336);
+        this->ClientSize = System::Drawing::Size(587, 336);
         this->Controls->Add(this->SortLabel);
         this->Controls->Add(this->EditQuantityButton);
         this->Controls->Add(this->SortByTitleButton);

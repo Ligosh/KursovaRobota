@@ -1,1 +1,7 @@
-null
+[
+    {
+        "email": "ivan@gmail.com",
+        "name": "Ivan",
+        "role": "Admin"
+    }
+]

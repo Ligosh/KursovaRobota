@@ -6,7 +6,7 @@ List<User^>^ UserRead::readUsersFromJSON(System::String^ filename) {
 
     std::ifstream file(filePath);
     if (!file.is_open()) {
-        throw gcnew System::IO::FileNotFoundException("Файл не найден: " + filename);
+        throw gcnew System::IO::FileNotFoundException("Файл не знайдено: " + filename);
     }
 
     json j;
