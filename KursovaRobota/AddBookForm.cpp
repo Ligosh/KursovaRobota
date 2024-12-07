@@ -106,14 +106,12 @@ namespace KursovaRobota {
                 throw ExceptionHandler("Кількість має бути невід'ємним числом.", ExceptionType::Warning);
             }
 
+            std::ofstream outputFile("books.csv", std::ios::app);
+
             System::String^ title = txtTitle->Text;
             System::String^ author = txtAuthor->Text;
             Book^ book = gcnew Book(title, author, year, quantity);
 
-            std::ofstream outputFile("books.csv", std::ios::app);
-            if (!outputFile.is_open()) {
-                throw ExceptionHandler("Не вдалося відкрити файл для збереження.", ExceptionType::Error);
-            }
 
             outputFile << msclr::interop::marshal_as<std::string>(book->getTitle()) << ","
                 << msclr::interop::marshal_as<std::string>(book->getAuthor()) << ","

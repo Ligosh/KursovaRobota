@@ -36,7 +36,7 @@ namespace KursovaRobota {
         this->BookList->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
         this->BookList->Location = System::Drawing::Point(22, 56);
         this->BookList->Name = L"BookList";
-        this->BookList->Size = System::Drawing::Size(177, 95);
+        this->BookList->Size = System::Drawing::Size(361, 95);
         this->BookList->TabIndex = 0;
         // 
         // BackButton
@@ -54,23 +54,23 @@ namespace KursovaRobota {
         // UserList
         // 
         this->UserList->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
-        this->UserList->Location = System::Drawing::Point(22, 157);
+        this->UserList->Location = System::Drawing::Point(22, 166);
         this->UserList->Name = L"UserList";
-        this->UserList->Size = System::Drawing::Size(177, 95);
+        this->UserList->Size = System::Drawing::Size(361, 95);
         this->UserList->TabIndex = 2;
         // 
         // ReservationList
         // 
         this->ReservationList->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
-        this->ReservationList->Location = System::Drawing::Point(239, 56);
+        this->ReservationList->Location = System::Drawing::Point(406, 56);
         this->ReservationList->Name = L"ReservationList";
-        this->ReservationList->Size = System::Drawing::Size(207, 95);
+        this->ReservationList->Size = System::Drawing::Size(297, 95);
         this->ReservationList->TabIndex = 3;
         // 
         // ReservationButton
         // 
         this->ReservationButton->BackColor = System::Drawing::Color::DeepSkyBlue;
-        this->ReservationButton->Location = System::Drawing::Point(71, 258);
+        this->ReservationButton->Location = System::Drawing::Point(163, 267);
         this->ReservationButton->Name = L"ReservationButton";
         this->ReservationButton->Size = System::Drawing::Size(79, 28);
         this->ReservationButton->TabIndex = 4;
@@ -81,7 +81,7 @@ namespace KursovaRobota {
         // DeleteButton
         // 
         this->DeleteButton->BackColor = System::Drawing::Color::DeepSkyBlue;
-        this->DeleteButton->Location = System::Drawing::Point(253, 157);
+        this->DeleteButton->Location = System::Drawing::Point(470, 157);
         this->DeleteButton->Name = L"DeleteButton";
         this->DeleteButton->Size = System::Drawing::Size(78, 23);
         this->DeleteButton->TabIndex = 5;
@@ -92,7 +92,7 @@ namespace KursovaRobota {
         // SortButton
         // 
         this->SortButton->BackColor = System::Drawing::Color::DeepSkyBlue;
-        this->SortButton->Location = System::Drawing::Point(349, 157);
+        this->SortButton->Location = System::Drawing::Point(570, 157);
         this->SortButton->Name = L"SortButton";
         this->SortButton->Size = System::Drawing::Size(78, 23);
         this->SortButton->TabIndex = 6;
@@ -104,7 +104,7 @@ namespace KursovaRobota {
         // 
         this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
         this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-        this->ClientSize = System::Drawing::Size(458, 315);
+        this->ClientSize = System::Drawing::Size(720, 322);
         this->Controls->Add(this->SortButton);
         this->Controls->Add(this->DeleteButton);
         this->Controls->Add(this->ReservationButton);
@@ -152,15 +152,24 @@ namespace KursovaRobota {
     void Reservation::LoadUsers()
     {
         try {
+            std::ifstream file("users.json");
+            if (!file.is_open()) {
+                throw ExceptionHandler("Не вдалося відкрити файл users.json для читання.", ExceptionType::Error);
+            }
+            file.close();
+
             auto users = UserRead::readUsersFromJSON("users.json");
             for each (User ^ user in users) {
-                this->UserList->Items->Add(user->getName());
+                String^ info = user->getRole() + ": " + user->getName() + " (Email: " + user->getEmail() + ")";
+                this->UserList->Items->Add(info);
             }
         }
         catch (const ExceptionHandler& ex) {
             ex.showMessage();
         }
     }
+
+
 
     void Reservation::LoadReservations()
     {

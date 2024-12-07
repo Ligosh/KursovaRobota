@@ -233,11 +233,21 @@ namespace KursovaRobota {
         if (!inputFile.is_open())
         {
             ExceptionHandler("Не вдалося відкрити books.csv", ExceptionType::Error).showMessage();
+
+            // Створюємо новий файл books.csv з заголовками
+            std::ofstream outputFile("books.csv");
+            if (!outputFile.is_open())
+            {
+                ExceptionHandler("Не вдалося створити файл books.csv", ExceptionType::Error).showMessage();
+                return;
+            }
+            outputFile << "Title,Author,Year,Quantity\n";
+            outputFile.close();
             return;
         }
 
         std::string line;
-        std::getline(inputFile, line); 
+        std::getline(inputFile, line); // Зчитуємо заголовок
         while (std::getline(inputFile, line))
         {
             try
@@ -276,6 +286,7 @@ namespace KursovaRobota {
                 book->getTitle() + " Автор: " + book->getAuthor() + ", Рік: " + book->getYear() + ", Кількість: " + book->getQuantity());
         }
     }
+
 
     void BooksCatalog::saveBooks()
     {

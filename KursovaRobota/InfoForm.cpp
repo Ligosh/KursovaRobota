@@ -62,11 +62,11 @@ namespace KursovaRobota {
 		this->label2->BackColor = System::Drawing::Color::DeepSkyBlue;
 		this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 			static_cast<System::Byte>(204)));
-		this->label2->Location = System::Drawing::Point(9, 66);
+		this->label2->Location = System::Drawing::Point(174, 66);
 		this->label2->Name = L"label2";
-		this->label2->Size = System::Drawing::Size(225, 13);
+		this->label2->Size = System::Drawing::Size(217, 13);
 		this->label2->TabIndex = 7;
-		this->label2->Text = L"Розроблення класів та архітектури: ";
+		this->label2->Text = L"Розроблення класів та архітектури";
 		// 
 		// label3
 		// 
@@ -74,11 +74,11 @@ namespace KursovaRobota {
 		this->label3->BackColor = System::Drawing::Color::DeepSkyBlue;
 		this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 			static_cast<System::Byte>(204)));
-		this->label3->Location = System::Drawing::Point(12, 116);
+		this->label3->Location = System::Drawing::Point(174, 119);
 		this->label3->Name = L"label3";
-		this->label3->Size = System::Drawing::Size(159, 13);
+		this->label3->Size = System::Drawing::Size(155, 13);
 		this->label3->TabIndex = 8;
-		this->label3->Text = L"Розроблення інтерфейсу:\r\n";
+		this->label3->Text = L"Розроблення інтерфейсу";
 		// 
 		// label4
 		// 
@@ -86,11 +86,11 @@ namespace KursovaRobota {
 		this->label4->BackColor = System::Drawing::Color::DeepSkyBlue;
 		this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 			static_cast<System::Byte>(204)));
-		this->label4->Location = System::Drawing::Point(12, 168);
+		this->label4->Location = System::Drawing::Point(174, 169);
 		this->label4->Name = L"label4";
-		this->label4->Size = System::Drawing::Size(112, 13);
+		this->label4->Size = System::Drawing::Size(108, 13);
 		this->label4->TabIndex = 9;
-		this->label4->Text = L"Робота з даними:";
+		this->label4->Text = L"Робота з даними";
 		// 
 		// label5
 		// 
@@ -98,11 +98,11 @@ namespace KursovaRobota {
 		this->label5->BackColor = System::Drawing::Color::DeepSkyBlue;
 		this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 			static_cast<System::Byte>(204)));
-		this->label5->Location = System::Drawing::Point(12, 220);
+		this->label5->Location = System::Drawing::Point(174, 223);
 		this->label5->Name = L"label5";
-		this->label5->Size = System::Drawing::Size(144, 13);
+		this->label5->Size = System::Drawing::Size(140, 13);
 		this->label5->TabIndex = 10;
-		this->label5->Text = L"Реалізація алгоритмів:\r\n";
+		this->label5->Text = L"Реалізація алгоритмів";
 		// 
 		// label6
 		// 
@@ -110,18 +110,18 @@ namespace KursovaRobota {
 		this->label6->BackColor = System::Drawing::Color::DeepSkyBlue;
 		this->label6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 			static_cast<System::Byte>(204)));
-		this->label6->Location = System::Drawing::Point(12, 276);
+		this->label6->Location = System::Drawing::Point(174, 273);
 		this->label6->Name = L"label6";
-		this->label6->Size = System::Drawing::Size(188, 13);
+		this->label6->Size = System::Drawing::Size(184, 13);
 		this->label6->TabIndex = 11;
-		this->label6->Text = L"Обробка виняткових ситуацій:";
+		this->label6->Text = L"Обробка виняткових ситуацій";
 		// 
 		// label7
 		// 
 		this->label7->AutoSize = true;
 		this->label7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 			static_cast<System::Byte>(204)));
-		this->label7->Location = System::Drawing::Point(240, 64);
+		this->label7->Location = System::Drawing::Point(12, 66);
 		this->label7->Name = L"label7";
 		this->label7->Size = System::Drawing::Size(90, 16);
 		this->label7->TabIndex = 12;
@@ -132,7 +132,7 @@ namespace KursovaRobota {
 		this->label8->AutoSize = true;
 		this->label8->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 			static_cast<System::Byte>(204)));
-		this->label8->Location = System::Drawing::Point(200, 116);
+		this->label8->Location = System::Drawing::Point(12, 116);
 		this->label8->Name = L"label8";
 		this->label8->Size = System::Drawing::Size(96, 16);
 		this->label8->TabIndex = 13;
@@ -143,7 +143,7 @@ namespace KursovaRobota {
 		this->label9->AutoSize = true;
 		this->label9->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 			static_cast<System::Byte>(204)));
-		this->label9->Location = System::Drawing::Point(165, 166);
+		this->label9->Location = System::Drawing::Point(12, 166);
 		this->label9->Name = L"label9";
 		this->label9->Size = System::Drawing::Size(89, 16);
 		this->label9->TabIndex = 14;
@@ -154,7 +154,7 @@ namespace KursovaRobota {
 		this->label10->AutoSize = true;
 		this->label10->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 			static_cast<System::Byte>(204)));
-		this->label10->Location = System::Drawing::Point(191, 217);
+		this->label10->Location = System::Drawing::Point(12, 220);
 		this->label10->Name = L"label10";
 		this->label10->Size = System::Drawing::Size(87, 16);
 		this->label10->TabIndex = 15;
@@ -165,7 +165,7 @@ namespace KursovaRobota {
 		this->label11->AutoSize = true;
 		this->label11->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 			static_cast<System::Byte>(204)));
-		this->label11->Location = System::Drawing::Point(226, 273);
+		this->label11->Location = System::Drawing::Point(12, 273);
 		this->label11->Name = L"label11";
 		this->label11->Size = System::Drawing::Size(29, 16);
 		this->label11->TabIndex = 16;

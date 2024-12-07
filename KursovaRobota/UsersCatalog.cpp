@@ -112,29 +112,45 @@ void UsersCatalog::loadUsers() {
     try {
         std::ifstream inputFile("users.json");
 
-        if (inputFile.is_open() && inputFile.peek() != std::ifstream::traits_type::eof()) {
-            users = UserRead::readUsersFromJSON("users.json");
-            inputFile.close();
-        }
-        else {
-            inputFile.close();
+        if (!inputFile.is_open()) {
+            ExceptionHandler("Не вдалося відкрити users.json", ExceptionType::Error).showMessage();
+
             json emptyArray = json::array();
             std::ofstream outputFile("users.json");
             outputFile << emptyArray.dump(4);
             outputFile.close();
             users = gcnew List<User^>();
+            return;
         }
+
+        if (inputFile.peek() != std::ifstream::traits_type::eof()) {
+            users = UserRead::readUsersFromJSON("users.json");
+        }
+        else {
+            json emptyArray = json::array();
+            std::ofstream outputFile("users.json");
+            if (!outputFile.is_open()) {
+                throw ExceptionHandler("Не вдалося створити новий файл users.json", ExceptionType::Error);
+            }
+            outputFile << emptyArray.dump(4);
+            users = gcnew List<User^>();
+        }
+        inputFile.close();
 
         for each (User ^ user in users) {
             System::String^ info = user->getRole() + ": " + user->getName() + " (Email: " + user->getEmail() + ")";
             listBoxUsers->Items->Add(info);
         }
     }
+    catch (const ExceptionHandler& ex) {
+        ex.showMessage();
+    }
     catch (const std::exception& ex) {
         ExceptionHandler handler(ex.what(), ExceptionType::Error);
         handler.showMessage();
     }
 }
+
 
 void UsersCatalog::saveUsersToJSON() {
     try {
