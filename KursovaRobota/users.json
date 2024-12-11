@@ -1,7 +1,52 @@
 [
     {
-        "email": "ivan@gmail.com",
-        "name": "Ivan",
+        "email": "andriy@gmail.com",
+        "name": "Andriy",
         "role": "Admin"
+    },
+    {
+        "email": "kateryna@mail.com",
+        "name": "Kateryna",
+        "role": "Admin"
+    },
+    {
+        "email": "taras@protonmail.com",
+        "name": "Taras",
+        "role": "Admin"
+    },
+    {
+        "email": "oksana@gmail.com",
+        "name": "Oksana",
+        "role": "Admin"
+    },
+    {
+        "email": "olena@yahoo.com",
+        "name": "Olena",
+        "role": "Member"
+    },
+    {
+        "email": "oleh@gmail.com",
+        "name": "Oleh",
+        "role": "Member"
+    },
+    {
+        "email": "marta@gmail.com",
+        "name": "Marta",
+        "role": "Member"
+    },
+    {
+        "email": "serhiy@outlook.com",
+        "name": "Serhiy",
+        "role": "Guest"
+    },
+    {
+        "email": "iryna@gmail.com",
+        "name": "Iryna",
+        "role": "Guest"
+    },
+    {
+        "email": "vasyl@yahoo.com",
+        "name": "Vasyl",
+        "role": "Guest"
     }
 ]

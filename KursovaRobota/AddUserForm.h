@@ -6,6 +6,9 @@
 #include <nlohmann/json.hpp>
 #include <msclr/marshal_cppstd.h>
 #include "ExceptionHandler.h"
+#include <fstream>
+#include <sstream>
+#include <regex>
 
 namespace KursovaRobota {
 

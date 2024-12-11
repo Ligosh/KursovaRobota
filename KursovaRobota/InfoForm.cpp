@@ -192,7 +192,7 @@ namespace KursovaRobota {
 		this->Controls->Add(this->BackButton);
 		this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedDialog;
 		this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
-		this->MinimizeBox = false;
+		this->MaximizeBox = false;
 		this->Name = L"InfoForm";
 		this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 		this->Text = L"Інформація про розробників";

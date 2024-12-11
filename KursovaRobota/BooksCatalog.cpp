@@ -165,12 +165,15 @@ namespace KursovaRobota {
     void BooksCatalog::DeleteButton_Click(System::Object^ sender, System::EventArgs^ e)
     {
         int index = listBoxBooks->SelectedIndex;
-        if (index >= 0 && index < books->Count)
+        if (index < 0 || index >= books->Count)
         {
-            books->RemoveAt(index);
-            saveBooks();
-            loadBooks();
+            ExceptionHandler("Будь ласка, виберіть книгу для видалення.", ExceptionType::Warning).showMessage();
+            return;
         }
+
+        books->RemoveAt(index);
+        saveBooks();
+        loadBooks();
     }
 
     void BooksCatalog::AddButton_Click(System::Object^ sender, System::EventArgs^ e)
@@ -204,7 +207,11 @@ namespace KursovaRobota {
     void BooksCatalog::EditQuantityButton_Click(System::Object^ sender, System::EventArgs^ e)
     {
         int index = listBoxBooks->SelectedIndex;
-        if (index < 0 || index >= books->Count) return;
+        if (index < 0 || index >= books->Count)
+        {
+            ExceptionHandler("Будь ласка, виберіть книгу для зміни кількості.", ExceptionType::Warning).showMessage();
+            return;
+        }
 
         Book^ book = books[index];
         InputForm^ inputForm = gcnew InputForm("Зміна кількості", "Введіть нову кількість:");
@@ -234,7 +241,6 @@ namespace KursovaRobota {
         {
             ExceptionHandler("Не вдалося відкрити books.csv", ExceptionType::Error).showMessage();
 
-            // Створюємо новий файл books.csv з заголовками
             std::ofstream outputFile("books.csv");
             if (!outputFile.is_open())
             {
@@ -247,7 +253,7 @@ namespace KursovaRobota {
         }
 
         std::string line;
-        std::getline(inputFile, line); // Зчитуємо заголовок
+        std::getline(inputFile, line); 
         while (std::getline(inputFile, line))
         {
             try

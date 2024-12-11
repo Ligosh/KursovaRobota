@@ -64,7 +64,7 @@ namespace KursovaRobota {
         this->ReservationList->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
         this->ReservationList->Location = System::Drawing::Point(406, 56);
         this->ReservationList->Name = L"ReservationList";
-        this->ReservationList->Size = System::Drawing::Size(297, 95);
+        this->ReservationList->Size = System::Drawing::Size(418, 95);
         this->ReservationList->TabIndex = 3;
         // 
         // ReservationButton
@@ -81,7 +81,7 @@ namespace KursovaRobota {
         // DeleteButton
         // 
         this->DeleteButton->BackColor = System::Drawing::Color::DeepSkyBlue;
-        this->DeleteButton->Location = System::Drawing::Point(470, 157);
+        this->DeleteButton->Location = System::Drawing::Point(507, 157);
         this->DeleteButton->Name = L"DeleteButton";
         this->DeleteButton->Size = System::Drawing::Size(78, 23);
         this->DeleteButton->TabIndex = 5;
@@ -92,7 +92,7 @@ namespace KursovaRobota {
         // SortButton
         // 
         this->SortButton->BackColor = System::Drawing::Color::DeepSkyBlue;
-        this->SortButton->Location = System::Drawing::Point(570, 157);
+        this->SortButton->Location = System::Drawing::Point(614, 157);
         this->SortButton->Name = L"SortButton";
         this->SortButton->Size = System::Drawing::Size(78, 23);
         this->SortButton->TabIndex = 6;
@@ -104,7 +104,7 @@ namespace KursovaRobota {
         // 
         this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
         this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-        this->ClientSize = System::Drawing::Size(720, 322);
+        this->ClientSize = System::Drawing::Size(836, 322);
         this->Controls->Add(this->SortButton);
         this->Controls->Add(this->DeleteButton);
         this->Controls->Add(this->ReservationButton);
@@ -173,18 +173,29 @@ namespace KursovaRobota {
 
     void Reservation::LoadReservations()
     {
-        std::ifstream file("reservation.csv");
-        if (!file.is_open()) {
-            ExceptionHandler("Не вдалося відкрити файл reservation.csv для читання.", ExceptionType::Error).showMessage();
-            return;
-        }
+        try {
+            std::ifstream file("reservation.csv");
 
-        std::string line;
-        while (std::getline(file, line)) {
-            this->ReservationList->Items->Add(gcnew String(line.c_str()));
+            if (!file.is_open()) {
+                ExceptionHandler("Не вдалося відкрити файл reservation.csv для читання.", ExceptionType::Error).showMessage();
+
+                std::ofstream newFile("reservation.csv");
+                newFile.close();
+                return;
+            }
+
+            std::string line;
+            while (std::getline(file, line)) {
+                this->ReservationList->Items->Add(gcnew String(line.c_str()));
+            }
+
+            file.close();
         }
-        file.close();
+        catch (const ExceptionHandler& ex) {
+            ex.showMessage();
+        }
     }
+
 
     void Reservation::ReservationButton_Click(System::Object^ sender, System::EventArgs^ e)
     {

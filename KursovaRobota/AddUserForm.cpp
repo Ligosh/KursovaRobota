@@ -1,6 +1,5 @@
 #include "AddUserForm.h"
-#include <fstream>
-#include <sstream>
+
 
 namespace KursovaRobota {
 
@@ -77,8 +76,20 @@ namespace KursovaRobota {
             System::String^ role = cmbRole->SelectedItem ? cmbRole->SelectedItem->ToString() : nullptr;
 
             if (String::IsNullOrEmpty(name) || String::IsNullOrEmpty(email) || String::IsNullOrEmpty(role)) {
-                ExceptionHandler handler("Будь ласка, заповніть усі поля і виберіть роль.", ExceptionType::Warning);
-                handler.showMessage();
+                MessageBox::Show("Будь ласка, заповніть усі поля і виберіть роль.", "Зауваження", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+                return;
+            }
+
+            std::string stdName = msclr::interop::marshal_as<std::string>(name);
+            std::string stdEmail = msclr::interop::marshal_as<std::string>(email);
+
+            std::regex validRegex("^[a-zA-Z0-9@.\\-\\s]+$");
+
+            if (!std::regex_match(stdName, validRegex) || !std::regex_match(stdEmail, validRegex)) {
+                MessageBox::Show("Введення повинно містити тільки латиницю, цифри та допустимі символи (@, ., -, пробіл).",
+                    "Зауваження",
+                    MessageBoxButtons::OK,
+                    MessageBoxIcon::Warning);
                 return;
             }
 
@@ -104,9 +115,6 @@ namespace KursovaRobota {
             }
             else {
                 users = json::array();
-                std::ofstream outputFile("users.json");
-                outputFile << users.dump(4);
-                outputFile.close();
             }
 
             json newUser;
@@ -118,8 +126,7 @@ namespace KursovaRobota {
 
             std::ofstream outputFile("users.json");
             if (!outputFile.is_open()) {
-                ExceptionHandler handler("Не вдалося відкрити файл users.json для запису.", ExceptionType::Error);
-                handler.showMessage();
+                MessageBox::Show("Не вдалося відкрити файл users.json для запису.", "Помилка", MessageBoxButtons::OK, MessageBoxIcon::Error);
                 return;
             }
             outputFile << users.dump(4) << std::endl;
@@ -131,8 +138,7 @@ namespace KursovaRobota {
 
         }
         catch (const std::exception& ex) {
-            ExceptionHandler handler(ex.what(), ExceptionType::Error);
-            handler.showMessage();
+            MessageBox::Show(gcnew System::String(ex.what()), "Помилка", MessageBoxButtons::OK, MessageBoxIcon::Error);
         }
     }
 
